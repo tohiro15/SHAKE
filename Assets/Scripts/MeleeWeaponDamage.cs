@@ -12,14 +12,6 @@ public class MeleeWeaponDamage : MonoBehaviour
 
 	public int AttackID => attackID;
 
-	private void Start()
-	{
-	}
-
-	private void Update()
-	{
-	}
-
 	private void OnEnable()
 	{
 		attackID++;

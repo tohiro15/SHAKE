@@ -163,10 +163,6 @@ public class LevelManager : MonoBehaviour
 		LoadLevel(0);
 	}
 
-	private void Start()
-	{
-	}
-
 	private void Update()
 	{
 		Cursor.lockState = CursorLockMode.None;

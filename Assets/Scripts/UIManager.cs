@@ -52,10 +52,6 @@ public class UIManager : MonoBehaviour
 		healthBarMat = healthBarImage.material;
 	}
 
-	private void Start()
-	{
-	}
-
 	public void Init(Camera _camera)
 	{
 		UiCanvas.worldCamera = _camera;
