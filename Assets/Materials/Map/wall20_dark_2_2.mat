@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _METALLICGLOSSMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,7 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _DetailMask
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -53,14 +54,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 15, y: 45}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 905a5a501c7c414c9f9d07a6ee421298, type: 3}
+        m_Scale: {x: 15, y: 45}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bac9972dad874316849785320eff8555, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicSmoothness:
@@ -88,7 +89,7 @@ Material:
     - _Falloff: 50
     - _Falloff1: 50
     - _Float0: 1
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _GridScale: 1
@@ -112,7 +113,7 @@ Material:
     - __dirty: 0
     m_Colors:
     - _BaseColor: {r: 0.8848789, g: 0.9021448, b: 0.9150943, a: 0}
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.34, g: 0.34, b: 0.34, a: 1}
     - _EmissionColor: {r: 34.29675, g: 2.103103, b: 2.103103, a: 0}
     - _EmissionColor1: {r: 1, g: 1, b: 1, a: 0}
     - _Tiling: {r: 0.2, g: 0.2, b: 0, a: 0}
