@@ -32,3 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level7.unity
     guid: 133f71121d664b6408e4a680385f4f25
+  - enabled: 1
+    path: Assets/Scenes/LevelSurvival.unity
+    guid: 425e7b6c682cfeb408514abc30297127
+  m_configObjects: {}
