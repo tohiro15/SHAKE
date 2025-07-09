@@ -220,9 +220,8 @@ public class LevelManager : MonoBehaviour
 		readyToLoad = false;
 		InitCount();
 		gameState = gameStates.playing;
-		player = UnityEngine.Object.Instantiate(playerPfb);
-		player.transform.position = _startPoint;
-		pointer = UnityEngine.Object.Instantiate(pointerPfb);
+		player = UnityEngine.Object.Instantiate(playerPfb, _startPoint, playerPfb.transform.rotation);
+        pointer = UnityEngine.Object.Instantiate(pointerPfb, _startPoint, pointerPfb.transform.rotation);
 		GameManager.Instance.CameraManager.Init(player, pointer.transform);
 		pointer.virtualCamera = GameManager.Instance.CameraManager.TopDownCameraArm.VirtualCamera;
 		GameManager.Instance.TimeScaleManager.ResetTimeScales();

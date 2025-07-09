@@ -33,10 +33,6 @@ public class CameraManager : MonoBehaviour
 		GameManager.Instance.UIManager.Init(renderCamera.TopCamera.Camera);
 	}
 
-	private void Awake()
-	{
-	}
-
 	private void Update()
 	{
 		if (!fpsCameraArm || !topDownCameraArm)

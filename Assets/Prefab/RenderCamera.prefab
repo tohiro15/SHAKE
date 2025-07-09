@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1791768364388438480}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5299155, y: -0.3134759, z: 0.2194982, w: 0.7567979}
-  m_LocalPosition: {x: 0, y: 18.54, z: 10.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 5fc18444-587b-47f1-ac8b-256aa1d8b8e7
+  sharedInstanceID: 8e47374a-700c-454b-bff8-13d49703c958
 --- !u!1 &1791768364388438484
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 1791768364388438489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 6f881507-cc51-4cc3-a832-c67128362fb0
+  sharedInstanceID: 9fac8c7e-ddc6-4f21-8138-a41257e7ee09
 --- !u!1 &1791768364388438533
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ public class PauseListener : MonoBehaviour
 {
 	private void Update()
 	{
-		if (Input.GetButtonDown("Cancel"))
+		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			LevelManager.Paused = !LevelManager.Paused;
 		}

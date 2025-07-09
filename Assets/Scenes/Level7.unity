@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 383165955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.983786, y: 18.65677, z: 34.117287}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1124,8 +1124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791768364388438063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.43778446, y: -0.31677353, z: 0.17033246, w: -0.8240062}
-  m_LocalPosition: {x: -7.670602, y: 16.120384, z: 2.1929574}
+  m_LocalRotation: {x: -0.41433886, y: -0.15772001, z: 0.07698572, w: -0.8930403}
+  m_LocalPosition: {x: -29.343918, y: 1.9796449, z: -37.081512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2310,11 +2310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: e6521cfc4195442cb938e43f8b666a0e, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!114 &1791768366284263545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,8 +2401,8 @@ MonoBehaviour:
   gameManagerPfb: {fileID: 1791768366284264020, guid: 86dd7560052749ed9dd14e343fb18ac1, type: 3}
   hasNextLevel: 0
   needFlashlight: 0
-  testGameMode: 1
-  testGame3CTypes: 1
+  testGameMode: 0
+  testGame3CTypes: 0
 --- !u!114 &1791768366284263551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,11 +2469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: cfeb3ea1bb984739a6a9b1a26ff02359, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!114 &1791768366284263556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,11 +2493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 411edd191935470ba5bcdd1958395067, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!124 &1791768366452035701
 Behaviour:
   m_ObjectHideFlags: 0

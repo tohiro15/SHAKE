@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,38 +7,48 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private Canvas UiCanvas;
 
-	[SerializeField]
-	private Image healthBarImage;
+
+    [Header("HUD")]
+    [Space]
+
+	[SerializeField] private GameObject hudPanel;
+	[SerializeField] private Image healthBarImage;
+	[SerializeField] private Text targetCountText;
+	[SerializeField] private Text remainCountText;
 
 	private Material healthBarMat;
 
-	[SerializeField]
-	private Text remainCountText;
+    [Header("Defeat")]
+    [Space]
 
-	[SerializeField]
-	private Text targetCountText;
+	[SerializeField] private CanvasGroup defeatCanvasGroup;
+	[SerializeField] private Text defeatStringText;
 
-	public Color redColor;
+	[Header("Pause Menu")]
+	[Space]
 
-	public Color greenColor;
+	[SerializeField] private Canvas _pauseCanvas;
+	private bool _pauseGame = false;
 
-	[SerializeField]
-	private CanvasGroup defeatCanvasGroup;
-
-	[SerializeField]
-	private Text defeatStringText;
-
-	[SerializeField]
-	private CanvasGroup successCanvasGroup;
+    [Header("Animation")]
+    [Space]
 
 	[SerializeField]
 	private AnimationCurve overShowCurve;
 
-	[SerializeField]
-	private float overShowTime;
+    [Header("Other")]
+    [Space]
+
+    public Color redColor;
+
+	public Color greenColor;
 
 	[SerializeField]
-	private GameObject hudPanel;
+	private CanvasGroup successCanvasGroup;
+
+
+	[SerializeField]
+	private float overShowTime;
 
 	private float overShowTimer;
 
@@ -46,11 +57,11 @@ public class UIManager : MonoBehaviour
 	private bool overIsSuccess;
 
 	private bool over;
-
-	private void Awake()
+    private void Awake()
 	{
 		healthBarMat = healthBarImage.material;
-	}
+		_pauseGame = false;
+    }
 
 	public void Init(Camera _camera)
 	{
@@ -98,7 +109,12 @@ public class UIManager : MonoBehaviour
 				successCanvasGroup.alpha = overShowCurve.Evaluate(overShowTimer / overShowTime);
 			}
 		}
-	}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			PauseMenu();
+        }
+    }
 
 	public void Defeat(string _defeatString)
 	{
@@ -117,10 +133,20 @@ public class UIManager : MonoBehaviour
 		successCanvasGroup.gameObject.SetActive(value: true);
 	}
 
-	public void ChangeTextAlpha(Text _text, float alpha)
+    public void ChangeTextAlpha(Text _text, float alpha)
 	{
 		tempColor = _text.color;
 		tempColor.a = alpha;
 		_text.color = tempColor;
 	}
+
+	public void PauseMenu()
+	{
+		if (_pauseCanvas == null) return;
+
+		_pauseGame = !_pauseGame;
+		_pauseCanvas.gameObject.SetActive(_pauseCanvas);
+
+		LevelManager.Paused = !LevelManager.Paused;
+    }
 }

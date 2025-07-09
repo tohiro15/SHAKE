@@ -62,7 +62,7 @@ public class TopDownCameraArm : MonoBehaviour
 		virtualCamera = GetComponent<Camera>();
 		proCamera2d = GetComponent<ProCamera2D>();
 		shakeComponent = GetComponent<ProCamera2DShake>();
-	}
+    }
 
 	private void Update()
 	{
