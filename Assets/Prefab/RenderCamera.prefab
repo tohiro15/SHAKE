@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e31fdf962e3e4ca3b62ec3ecc2f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tonemapper: 0
-  Exposure: 1
+  Tonemapper: 3
+  Exposure: 0.8
   LinearWhitePoint: 11.2
   ApplyDithering: 0
   QualityLevel: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 8e47374a-700c-454b-bff8-13d49703c958
+  sharedInstanceID: edd410f3-4c30-4ceb-9b98-8dabf70e84e9
 --- !u!1 &1791768364388438484
 GameObject:
   m_ObjectHideFlags: 0
