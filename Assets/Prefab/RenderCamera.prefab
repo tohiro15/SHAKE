@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1791768366452036456}
   - component: {fileID: 1791768366284264441}
   - component: {fileID: 1791768366284264450}
+  - component: {fileID: -7020902392280164034}
   m_Layer: 0
   m_Name: RenderCamera
   m_TagString: MainCamera
@@ -124,6 +125,61 @@ MonoBehaviour:
   topCamera: {fileID: 1791768366284264437}
   blackMaterial: {fileID: 2100000, guid: 59f138a319084617b0e113d1314717a7, type: 2}
   blackFadeSpeed: 3
+--- !u!114 &-7020902392280164034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791768364388438480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e31fdf962e3e4ca3b62ec3ecc2f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tonemapper: 0
+  Exposure: 1
+  LinearWhitePoint: 11.2
+  ApplyDithering: 0
+  QualityLevel: 0
+  BlendAmount: 0.6
+  LutTexture: {fileID: 2800000, guid: e52b2c51a69b49f28bd20d3c0adc6c60, type: 3}
+  LutBlendTexture: {fileID: 0}
+  MaskTexture: {fileID: 0}
+  UseDepthMask: 0
+  DepthMaskCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UseVolumes: 0
+  ExitVolumeBlendTime: 1
+  TriggerVolumeProxy: {fileID: 0}
+  VolumeCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  EffectFlags:
+    components: []
+  sharedInstanceID: 5fc18444-587b-47f1-ac8b-256aa1d8b8e7
 --- !u!1 &1791768364388438484
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,8 +222,8 @@ GameObject:
   - component: {fileID: 1791768364438770389}
   - component: {fileID: 1791768364707205879}
   - component: {fileID: 1791768366284264426}
-  - component: {fileID: 1791768366284264427}
   - component: {fileID: 1791768366284264437}
+  - component: {fileID: 4935611233028962515}
   m_Layer: 0
   m_Name: TopCamera
   m_TagString: RenderCamera
@@ -254,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2630c1d10a3363efa21d1fc7e1d31a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1791768366284264427
+--- !u!114 &1791768366284264437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,15 +319,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1791768364388438489}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627403d3a903a0382365bf65f97f37d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f5e716e308367c212a245234c6f5c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackMaterial: {fileID: 0}
+  brightness: 0
+--- !u!114 &4935611233028962515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791768364388438489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e31fdf962e3e4ca3b62ec3ecc2f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tonemapper: 0
   Exposure: 1
   LinearWhitePoint: 11.2
   ApplyDithering: 0
-  QualityLevel: 1
-  BlendAmount: 0.6
+  QualityLevel: 0
+  BlendAmount: 0
   LutTexture: {fileID: 2800000, guid: e52b2c51a69b49f28bd20d3c0adc6c60, type: 3}
   LutBlendTexture: {fileID: 0}
   MaskTexture: {fileID: 0}
@@ -308,21 +378,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 629d8b27-93be-4077-a43c-30b62c8ea4be
---- !u!114 &1791768366284264437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791768364388438489}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5e716e308367c212a245234c6f5c55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackMaterial: {fileID: 0}
-  brightness: 0
+  sharedInstanceID: 6f881507-cc51-4cc3-a832-c67128362fb0
 --- !u!1 &1791768364388438533
 GameObject:
   m_ObjectHideFlags: 0

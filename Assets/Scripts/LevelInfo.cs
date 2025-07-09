@@ -39,8 +39,4 @@ public class LevelInfo : MonoBehaviour
 		}
 		DataManager.SetEnteredLevel("Level" + currentLevelIndex.ToString());
 	}
-
-	private void Update()
-	{
-	}
 }
