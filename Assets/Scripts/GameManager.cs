@@ -1,4 +1,5 @@
 using UnityEngine;
+using GamePush;
 
 public class GameManager : MonoBehaviour
 {
@@ -72,8 +73,29 @@ public class GameManager : MonoBehaviour
 			Init();
 		}
 	}
+    private void OnEnable()
+    {
+        GP_Init.OnReady += OnPluginReady;
+    }
+    private async void Start()
+    {
+        await GP_Init.Ready;
+        OnPluginReady();
+    }
 
-	public void DeleteDatas()
+    private void CheckReady()
+    {
+        if (GP_Init.isReady)
+        {
+            OnPluginReady();
+        }
+    }
+
+    private void OnPluginReady()
+    {
+        Debug.Log("Plugin 'GamePush' - ready!");
+    }
+    public void DeleteDatas()
 	{
 		DataManager.DeleteSaveData();
 	}

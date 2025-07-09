@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GamePush;
 
 public class LevelManager : MonoBehaviour
 {
@@ -163,7 +164,7 @@ public class LevelManager : MonoBehaviour
 		LoadLevel(0);
 	}
 
-	private void Update()
+    private void Update()
 	{
 		Cursor.lockState = CursorLockMode.None;
 		if (paused)
@@ -204,10 +205,15 @@ public class LevelManager : MonoBehaviour
 			}
 		}
 	}
+	public void ShowFullscreen() => GP_Ads.ShowFullscreen(OnFullscreenStart, OnFullscreenClose);
+    private void OnFullscreenStart() => Debug.Log("ON FULLSCREEN START");
+    private void OnFullscreenClose(bool success) => Debug.Log("ON FULLSCREEN CLOSE");
 
 	public void StartLevel(Vector3 _startPoint, int _targetCount)
 	{
-		if (gameMode == gameModes.rescue)
+		if(levelInfo.currentLevelIndex > 1) ShowFullscreen();
+
+        if (gameMode == gameModes.rescue)
 		{
 			targetCount = _targetCount;
 		}
@@ -231,7 +237,10 @@ public class LevelManager : MonoBehaviour
 		{
 			return;
 		}
-		pointer.gameObject.SetActive(value: false);
+
+        ShowFullscreen();
+
+        pointer.gameObject.SetActive(value: false);
 		AudioManager.PlaySFX("Game_Fail");
 		if (readyToLoad || gameState != gameStates.playing)
 		{
