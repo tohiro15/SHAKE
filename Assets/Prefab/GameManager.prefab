@@ -22036,9 +22036,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 60a76b1a0db941f79f1b23bf956d935c, type: 2}
-  masterVolumeParameter: volume_Master
-  sfxVolumeParameter: volume_SFX
-  bgmVolumeParameter: volume_BGM
+  masterVolumeParameter: Volume_Master
+  sfxVolumeParameter: Volume_SFX
+  bgmVolumeParameter: Volume_BGM
   bgmSource: {fileID: 1791768365747392802}
   sfxSource: {fileID: 1791768365747392803}
   bgmAttenuation: 0
@@ -22088,7 +22088,7 @@ AudioSource:
   m_GameObject: {fileID: 1791768364388438183}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300003, guid: 60a76b1a0db941f79f1b23bf956d935c, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -22216,7 +22216,7 @@ AudioSource:
   m_GameObject: {fileID: 1791768364388438184}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300004, guid: 60a76b1a0db941f79f1b23bf956d935c, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
