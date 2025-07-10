@@ -78,8 +78,8 @@ public class Combat : MonoBehaviour
 	public SnakePart Part => part;
 
 	public bool IsDead => dead;
-
-	public bool Actived => actived;
+    public event Action OnDeath;
+    public bool Actived => actived;
 
 	public Gun Gun => gun;
 
@@ -98,9 +98,9 @@ public class Combat : MonoBehaviour
 		{
 			UnityEngine.Object.Destroy(headFly.gameObject);
 		}
+        OnDeath = null;
 	}
-
-	private void Init()
+    private void Init()
 	{
 		if (!inited)
 		{
@@ -250,7 +250,8 @@ public class Combat : MonoBehaviour
 		gun.Active = false;
 		gun.gameObject.SetActive(value: false);
 		dead = true;
-		AudioManager.PlaySFXAtPosition("Death_Flesh", base.transform.position);
+        OnDeath?.Invoke();
+        AudioManager.PlaySFXAtPosition("Death_Flesh", base.transform.position);
 		AudioManager.PlaySFXAtPosition("Scream", base.transform.position);
 		if (team != 1)
 		{
