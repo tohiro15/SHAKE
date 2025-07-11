@@ -5,6 +5,7 @@ public class Diamond : MonoBehaviour
     [Tooltip("Сколько алмазов даёт этот объект.")]
     [SerializeField] private int _diamondValue = 1;
     [SerializeField] private LayerMask _playerLayer;
+    public int DiamondValue => _diamondValue;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,5 +16,4 @@ public class Diamond : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
