@@ -14,14 +14,6 @@ public class TimeScaleManager : MonoBehaviour
 
 	private float pauseTimeScaleFactor => (!LevelManager.Paused) ? 1 : 0;
 
-	private void Awake()
-	{
-	}
-
-	private void Start()
-	{
-	}
-
 	private void Update()
 	{
 		if (UnityEngine.Input.GetKey(KeyCode.LeftShift))
@@ -32,7 +24,12 @@ public class TimeScaleManager : MonoBehaviour
 		{
 			bulletTimeFactor = 1f;
 		}
-		UpdateTimeSclae();
+
+		if(LevelManager.Shop)
+		{
+			Time.timeScale = 0f;
+		}
+		UpdateTimeScale();
 	}
 
 	public void Dead()
@@ -45,9 +42,9 @@ public class TimeScaleManager : MonoBehaviour
 		dead = false;
 	}
 
-	private void UpdateTimeSclae()
+	private void UpdateTimeScale()
 	{
-		Time.timeScale = (dead ? deadTimeScale : 1f) * pauseTimeScaleFactor * bulletTimeFactor;
+		Time.timeScale = (dead || LevelManager.Shop ? deadTimeScale : 1f) * pauseTimeScaleFactor * bulletTimeFactor;
 		if (Time.timeScale > 0f)
 		{
 			Time.fixedDeltaTime = Time.timeScale * 0.0069444445f;

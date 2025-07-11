@@ -33703,7 +33703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _broPrefab: {fileID: 1791768364388438451, guid: a57f7be21a15489daa2d523f389b092e, type: 3}
-  _price: 0
+  _price: 15
   _buyButton: {fileID: 5118852058735794010}
   _buyPrice: {fileID: 3025179240793005321}
 --- !u!1 &3753595524920564127

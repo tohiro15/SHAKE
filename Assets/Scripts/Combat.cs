@@ -244,7 +244,7 @@ public class Combat : MonoBehaviour
 	{
         OnDeath?.Invoke();
 
-		if(GameManager.Instance.LevelManager.levelInfo.survivalMode)
+		if(GameManager.Instance.LevelManager.levelInfo.survivalMode && team != 0)
 		{
             GameManager.Instance.ParticleManager.DieParticleEmitter.transform.position = base.transform.position;
 			GameManager.Instance.ParticleManager.DieParticleEmitter.Emit(1);

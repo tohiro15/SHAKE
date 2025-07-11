@@ -2817,7 +2817,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65024
   floatingMode: 1
-  dashMode: 0
+  dashMode: 1
   dashTime: 0.15
   dashCoolTime: 0.5
   dashSpeed: 25

@@ -48,8 +48,7 @@ public class UI_SurvivalMode : MonoBehaviour
         if (_shopPanel == null) return;
 
         _isOpen = !_isOpen;
-        LevelManager.Paused = !LevelManager.Paused;
-
+        LevelManager.Shop = !LevelManager.Shop;
         _shopPanel.SetActive(_isOpen);
     }
 }

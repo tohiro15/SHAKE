@@ -60,7 +60,9 @@ public class LevelManager : MonoBehaviour
 
 	private bool paused;
 
-	[SerializeField]
+	private bool shoping;
+
+    [SerializeField]
 	private PlayerControl playerPfb;
 
 	private PlayerControl player;
@@ -127,6 +129,25 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 
+    public static bool Shop
+    {
+        get
+        {
+            if ((bool)instance)
+            {
+                return instance.shoping;
+            }
+            return false;
+        }
+        set
+        {
+            if ((bool)instance && instance.shoping != value)
+            {
+                instance.shoping = value;
+            }
+        }
+    }
+
     public PlayerControl Player => player;
 
 	public Transform Pointer
@@ -142,8 +163,7 @@ public class LevelManager : MonoBehaviour
 	}
 
 	public event PauseEventHandler onPauseChanged;
-
-	public static void Pause()
+    public static void Pause()
 	{
 		Paused = true;
 	}
@@ -167,7 +187,7 @@ public class LevelManager : MonoBehaviour
     private void Update()
 	{
 		Cursor.lockState = CursorLockMode.None;
-		if (paused)
+		if (paused || shoping)
 		{
 			Cursor.visible = true;
 		}
@@ -196,7 +216,7 @@ public class LevelManager : MonoBehaviour
 				}
 			}
 		}
-		else if (!paused)
+		else if (!paused && !shoping)
 		{
 			Cursor.visible = false;
 			if (game3CType == game3Ctypes.fps)
@@ -228,6 +248,7 @@ public class LevelManager : MonoBehaviour
 		enemyKillCount = 0;
 		UpdateUICount();
 		Paused = false;
+		Shop = false;
 	}
 
 	public void Defeat(DefeatType _type)
