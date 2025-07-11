@@ -2436,8 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30b740a6095c546bae709dc0ba3f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 198554658}
-  _spawnPoints:
+  _spawnZones:
   - {fileID: 489124401}
   - {fileID: 504099142}
   - {fileID: 1752010281}
@@ -2445,7 +2444,12 @@ MonoBehaviour:
   - {fileID: 1008199436}
   - {fileID: 1359278723}
   _spawnDelay: 1
-  _minSpawnDistance: 1
+  _spawnRadius: 5
+  _distanceToPlayer: 30
+  _pool: {fileID: 198554658}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &198554658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,7 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaef064b462a7af4aaeac54b6b82739f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 1791768364388438398, guid: c129a118f8dc4b7db534b99c6716277e, type: 3}
+  _enemyPrefab: {fileID: 1791768364388438398, guid: c07adffdd09261b4f844c313c1ae9a16, type: 3}
   _poolSize: 20
 --- !u!1 &205203638
 GameObject:

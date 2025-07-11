@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyPool _pool;
-    [SerializeField] private Transform[] _spawnPoints;
+    [Header ("Spawn Settings")]
+    [Space]
+
+    [SerializeField] private Transform[] _spawnZones;
     [SerializeField] private float _spawnDelay = 5f;
+    [SerializeField] private float _spawnRadius = 5f;
     [SerializeField] private float _distanceToPlayer = 30f;
-    [SerializeField] private float _minSpawnDistance = 1.5f;
+
+    [Header("Enemy Settings")]
+    [Space]
+
+    [SerializeField] private EnemyPool _pool;
+    [SerializeField] private LayerMask _enemyLayer;
 
     private List<GameObject> _activeEnemies = new List<GameObject>();
     private Transform _player;
+
     private void Start()
     {
         StartCoroutine(SpawnEnemies());
@@ -27,23 +36,28 @@ public class EnemySpawner : MonoBehaviour
                 continue;
 
             if (_player == null && GameManager.Instance.LevelManager.Player != null)
-            {
                 _player = GameManager.Instance.LevelManager.Player.transform;
-            }
 
             if (_player == null)
                 continue;
 
             bool spawnSuccess = false;
-            for (int attempt = 0; attempt < _spawnPoints.Length; attempt++)
-            {
-                Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
 
-                float distanceToPlayer = Vector3.Distance(_player.position, spawnPoint.position);
-                if (_distanceToPlayer > distanceToPlayer)
+            for (int attempt = 0; attempt < _spawnZones.Length; attempt++)
+            {
+                Transform zone = _spawnZones[Random.Range(0, _spawnZones.Length)];
+                Vector2 randomOffset = Random.insideUnitCircle * _spawnRadius;
+                Vector3 spawnPos = zone.position + new Vector3(randomOffset.x, 0, randomOffset.y);
+
+                float distanceToPlayer = Vector3.Distance(_player.position, spawnPos);
+                if (distanceToPlayer < _distanceToPlayer)
                     continue;
 
-                GameObject enemy = _pool.GetEnemy(spawnPoint.position);
+                Collider[] colliders = Physics.OverlapSphere(spawnPos, 1.5f, _enemyLayer);
+                if (colliders.Length > 0)
+                    continue;
+
+                GameObject enemy = _pool.GetEnemy(spawnPos);
                 if (enemy != null)
                 {
                     _activeEnemies.Add(enemy);
@@ -62,9 +76,8 @@ public class EnemySpawner : MonoBehaviour
 
             if (!spawnSuccess)
             {
-                Debug.Log("Нет подходящих точек для спавна");
+                Debug.Log("Не удалось найти свободное место для спавна");
             }
         }
-
     }
 }
