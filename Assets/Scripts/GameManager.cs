@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 	private CameraManager cameraManager;
 
 	private bool inited;
-
 	public static GameManager Instance => instance;
 
 	public LevelManager LevelManager => levelManager;
