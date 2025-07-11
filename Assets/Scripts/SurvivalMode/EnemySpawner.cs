@@ -25,6 +25,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _diamondDropChance = 90;
     [SerializeField] private GameObject _hpRecoverPrefab;
     [SerializeField] private float _hpRecoverDropChance = 50;
+    [SerializeField] private GameObject _bombPrefab;
+    [SerializeField] private float _bombDropChance = 10;
+
     private Transform _player;
     private bool _waitingNextWave = false;
     private bool _fullWave = false;
@@ -90,10 +93,8 @@ public class EnemySpawner : MonoBehaviour
 
                         if (roll < _nothingDropChance) { }
                         else if (roll < _nothingDropChance + _hpRecoverDropChance) Instantiate(_hpRecoverPrefab, dropPos, Quaternion.identity);
-                        else
-                        {
-                            Instantiate(_diamondPrefab, dropPos, Quaternion.identity);
-                        }
+                        else if(roll < _nothingDropChance + _hpRecoverDropChance + _bombDropChance) Instantiate(_bombPrefab, dropPos, Quaternion.identity);
+                        else Instantiate(_diamondPrefab, dropPos, Quaternion.identity);
 
                         _pool.ReturnToPool(enemy);
                         GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Remove(enemy);

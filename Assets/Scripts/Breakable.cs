@@ -102,7 +102,7 @@ public class Breakable : MonoBehaviour
 				ProCamera2DShake.Instance.Shake("KillShake");
 			}
 			breaked = true;
-			Object.Instantiate(breakParts, base.transform.position, base.transform.rotation);
+			if(breakParts != null) Object.Instantiate(breakParts, base.transform.position, base.transform.rotation);
 			if (boom)
 			{
 				GameManager.Instance.BoomManager.Boom(base.transform.position, boomRadius, boomForce, boomHurt, 3);

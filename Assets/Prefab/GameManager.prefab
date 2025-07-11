@@ -27230,7 +27230,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HP
+  m_Text: "\u60E0\u666E"
 --- !u!114 &1791768366284264034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27248,7 +27248,7 @@ MonoBehaviour:
   EnglishObjects: []
   text: {fileID: 1791768366284264070}
   textMesh: {fileID: 0}
-  ChineseText: HP
+  ChineseText: "\u60E0\u666E"
   EnglishText: HP
 --- !u!1 &1791768364388438231
 GameObject:
