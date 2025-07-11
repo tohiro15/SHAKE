@@ -18,10 +18,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _maxEnemiesThisWave = 5;
     [SerializeField] private int _increaseEnemy = 2;
 
-    [Header("Diamond Settings")]
+    [Header("Drop Settings")]
     [Space]
+    [SerializeField] private float _nothingDropChance = 20f;
     [SerializeField] private GameObject _diamondPrefab;
-
+    [SerializeField] private float _diamondDropChance = 90;
+    [SerializeField] private GameObject _hpRecoverPrefab;
+    [SerializeField] private float _hpRecoverDropChance = 50;
     private Transform _player;
     private bool _waitingNextWave = false;
     private bool _fullWave = false;
@@ -79,17 +82,23 @@ public class EnemySpawner : MonoBehaviour
                     Combat enemyScript = enemy.GetComponent<Combat>();
                     enemyScript.OnDeath += () =>
                     {
-                        Vector3 diamondSpawnPosition = enemy.transform.position;
-                        GameObject diamond = Instantiate(_diamondPrefab);
-                        diamond.transform.position = diamondSpawnPosition;
+                        Vector3 dropPos = enemy.transform.position;
+
+                        float total = _nothingDropChance + _hpRecoverDropChance + _diamondDropChance;
+
+                        float roll = Random.value * total;
+
+                        if (roll < _nothingDropChance) { }
+                        else if (roll < _nothingDropChance + _hpRecoverDropChance) Instantiate(_hpRecoverPrefab, dropPos, Quaternion.identity);
+                        else
+                        {
+                            Instantiate(_diamondPrefab, dropPos, Quaternion.identity);
+                        }
 
                         _pool.ReturnToPool(enemy);
                         GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Remove(enemy);
-
                         if (GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Count == 0)
-                        {
                             StartCoroutine(NextWaveDelay());
-                        }
                     };
 
                     spawnSuccess = true;

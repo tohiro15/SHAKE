@@ -452,8 +452,13 @@ public class Combat : MonoBehaviour
 		isBlack = true;
 	}
 
-	public void ReturnEnemy()
-	{
-		health = maxHealth;
+    public void AddHP(int amount)
+    {
+        if (dead) return;
+
+        health += amount;
+        if (health > maxHealth)
+            health = maxHealth;
     }
+
 }
