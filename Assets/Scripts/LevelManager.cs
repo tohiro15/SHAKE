@@ -475,7 +475,7 @@ public class LevelManager : MonoBehaviour
 		LoadLevel(toLoadIndex);
 	}
 
-	private void LoadLevel(int _levelIndex)
+	public void LoadLevel(int _levelIndex)
 	{
 		levelIndex = _levelIndex;
 		SceneManager.LoadScene("level" + _levelIndex.ToString(), LoadSceneMode.Single);
