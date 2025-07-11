@@ -75,8 +75,4 @@ public class ActiveByConditions : MonoBehaviour
 			target.SetActive(inverse);
 		}
 	}
-
-	private void Update()
-	{
-	}
 }
