@@ -7,35 +7,29 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RingUI
-  m_Shader: {fileID: 4800000, guid: 4f9974e11e8ebd1408d24e515807ec8c, type: 3}
+  m_Name: Diamond
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailBump:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -47,15 +41,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DetailTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainBump:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -78,37 +64,22 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _ColorMask: 15
-    - _CutValue: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.5656854
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Shininess: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _Strength: 0.2
     - _UVSec: 0
-    - _UseUIAlphaClip: 0
-    - _ZWrite: 1
-    - __dirty: 0
+    - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DamgerColor: {r: 5.216475, g: 0.1092456, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.6666667, b: 0.8, a: 0.36105555}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HealthColor: {r: 0.5735392, g: 5.216475, b: 0.08193417, a: 1}
-    - _MainColor: {r: 0.848, g: 1.51658, b: 2.176, a: 0}
-    - _Specular: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
