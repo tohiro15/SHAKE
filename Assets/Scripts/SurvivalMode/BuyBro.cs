@@ -12,9 +12,6 @@ public class BuyBro : MonoBehaviour
     [SerializeField] private Button _buyButton;
     [SerializeField] private Text _buyPrice;
 
-    private int _currentDiamonds;
-    private Transform _playerTransform;
-
     private void Start()
     {
         if (_broPrefab == null) return;
@@ -27,11 +24,15 @@ public class BuyBro : MonoBehaviour
 
     private void Buy()
     {
-        if (_currentDiamonds < _price) return;
-        _currentDiamonds -= _price;
+        if (GameManager.Instance.LevelManager.levelInfo.survivalModeManager.Diamonds < _price) return;
+        GameManager.Instance.LevelManager.levelInfo.survivalModeManager.Diamonds -= _price;
+        _price += _price;
+
+        _buyPrice.text = $"{_price}";
 
         Vector3 target = GameManager.Instance.LevelManager.Player.transform.position;
         GameObject bro = Instantiate(_broPrefab);
         bro.transform.position = target;
+
     }
 }

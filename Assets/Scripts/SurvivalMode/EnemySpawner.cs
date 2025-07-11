@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header ("Spawn Settings")]
+    [Header("Spawn Settings")]
     [Space]
-
     [SerializeField] private Transform[] _spawnZones;
     [SerializeField] private float _spawnDelay = 5f;
     [SerializeField] private float _spawnRadius = 5f;
@@ -14,12 +13,19 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Settings")]
     [Space]
-
     [SerializeField] private EnemyPool _pool;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private int _maxEnemiesThisWave = 5;
+    [SerializeField] private int _increaseEnemy = 2;
 
-    private List<GameObject> _activeEnemies = new List<GameObject>();
+    [Header("Diamond Settings")]
+    [Space]
+    [SerializeField] private GameObject _diamondPrefab;
+
     private Transform _player;
+    private bool _waitingNextWave = false;
+    private bool _fullWave = false;
+    private int _spawnedThisWave = 0;
 
     private void Start()
     {
@@ -32,13 +38,21 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnDelay);
 
-            if (_activeEnemies.Count >= _pool.PoolSize)
+            CleanActiveEnemies();
+
+            if (_waitingNextWave)
                 continue;
 
             if (_player == null && GameManager.Instance.LevelManager.Player != null)
                 _player = GameManager.Instance.LevelManager.Player.transform;
 
             if (_player == null)
+                continue;
+
+            if (_spawnedThisWave >= _maxEnemiesThisWave)
+                _fullWave = true;
+
+            if (_fullWave)
                 continue;
 
             bool spawnSuccess = false;
@@ -49,24 +63,33 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 randomOffset = Random.insideUnitCircle * _spawnRadius;
                 Vector3 spawnPos = zone.position + new Vector3(randomOffset.x, 0, randomOffset.y);
 
-                float distanceToPlayer = Vector3.Distance(_player.position, spawnPos);
-                if (distanceToPlayer < _distanceToPlayer)
+                if (Vector3.Distance(_player.position, spawnPos) < _distanceToPlayer)
                     continue;
 
-                Collider[] colliders = Physics.OverlapSphere(spawnPos, 1.5f, _enemyLayer);
-                if (colliders.Length > 0)
+                if (Physics.OverlapSphere(spawnPos, 1.5f, _enemyLayer).Length > 0)
                     continue;
 
                 GameObject enemy = _pool.GetEnemy(spawnPos);
                 if (enemy != null)
                 {
-                    _activeEnemies.Add(enemy);
+                    _spawnedThisWave++;
+
+                    GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Add(enemy);
 
                     Combat enemyScript = enemy.GetComponent<Combat>();
                     enemyScript.OnDeath += () =>
                     {
+                        Vector3 diamondSpawnPosition = enemy.transform.position;
+                        GameObject diamond = Instantiate(_diamondPrefab);
+                        diamond.transform.position = diamondSpawnPosition;
+
                         _pool.ReturnToPool(enemy);
-                        _activeEnemies.Remove(enemy);
+                        GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Remove(enemy);
+
+                        if (GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies.Count == 0)
+                        {
+                            StartCoroutine(NextWaveDelay());
+                        }
                     };
 
                     spawnSuccess = true;
@@ -80,4 +103,29 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator NextWaveDelay()
+    {
+        _waitingNextWave = true;
+
+        Debug.Log("Все враги побеждены. Следующая волна скоро начнётся...");
+
+        CleanActiveEnemies();
+
+        yield return new WaitForSeconds(3f);
+
+        GameManager.Instance.LevelManager.levelInfo.survivalModeManager.CurrentWave += 1;
+        _maxEnemiesThisWave += _increaseEnemy;
+
+        _fullWave = false;
+        _spawnedThisWave = 0;
+        _waitingNextWave = false;
+    }
+
+    private void CleanActiveEnemies()
+    {
+        var list = GameManager.Instance.LevelManager.levelInfo.survivalModeManager.ActiveEnemies;
+        list.RemoveAll(e => e == null);
+    }
+
 }

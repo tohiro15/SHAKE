@@ -12,6 +12,7 @@ public class UI_SurvivalMode : MonoBehaviour
     private void Start()
     {
         _isOpen = false;
+        _shopPanel.SetActive(false);
 
         if (GP_Device.IsDesktop())
         {

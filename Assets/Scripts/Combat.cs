@@ -242,6 +242,17 @@ public class Combat : MonoBehaviour
 
 	private void Die(int _killerTeam)
 	{
+        OnDeath?.Invoke();
+
+		if(GameManager.Instance.LevelManager.levelInfo.survivalMode)
+		{
+            GameManager.Instance.ParticleManager.DieParticleEmitter.transform.position = base.transform.position;
+			GameManager.Instance.ParticleManager.DieParticleEmitter.Emit(1);
+            ProCamera2DShake.Instance.Shake("KillShake");
+			OnDeath = null;
+
+            return;
+        }
 		if (dead)
 		{
 			return;
@@ -250,7 +261,6 @@ public class Combat : MonoBehaviour
 		gun.Active = false;
 		gun.gameObject.SetActive(value: false);
 		dead = true;
-        OnDeath?.Invoke();
         AudioManager.PlaySFXAtPosition("Death_Flesh", base.transform.position);
 		AudioManager.PlaySFXAtPosition("Scream", base.transform.position);
 		if (team != 1)
@@ -441,4 +451,9 @@ public class Combat : MonoBehaviour
 	{
 		isBlack = true;
 	}
+
+	public void ReturnEnemy()
+	{
+		health = maxHealth;
+    }
 }

@@ -4,13 +4,12 @@ using UnityEngine;
 public class EnemyPool : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
-    [SerializeField] private int _poolSize = 20;
-    public int PoolSize => _poolSize; 
+    public int PoolSize = 20;
     private Queue<GameObject> _pool = new Queue<GameObject>();
 
     private void Awake()
     {
-        for (int i = 0; i < _poolSize; i++)
+        for (int i = 0; i < PoolSize; i++)
         {
             GameObject enemy = Instantiate(_enemyPrefab);
             enemy.SetActive(false);
@@ -20,15 +19,19 @@ public class EnemyPool : MonoBehaviour
 
     public GameObject GetEnemy(Vector3 position)
     {
-        if (_pool.Count > 0)
+        if (_pool.Count == 0)
         {
-            GameObject enemy = _pool.Dequeue();
-            enemy.transform.position = position;
-            enemy.SetActive(true);
-            return enemy;
+            GameObject extra = Instantiate(_enemyPrefab);
+            extra.SetActive(false);
+            _pool.Enqueue(extra);
+            PoolSize++;
         }
 
-        return null;
+        // Достаём из пула
+        GameObject enemy = _pool.Dequeue();
+        enemy.transform.position = position;
+        enemy.SetActive(true);
+        return enemy;
     }
 
     public void ReturnToPool(GameObject enemy)

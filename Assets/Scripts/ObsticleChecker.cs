@@ -40,7 +40,7 @@ public class ObsticleChecker : MonoBehaviour
 
 	private void Update()
 	{
-		if (!gameStarted && GameManager.Instance.LevelManager.GameState == LevelManager.gameStates.playing)
+        if (!gameStarted && GameManager.Instance.LevelManager.GameState == LevelManager.gameStates.playing)
 		{
 			gameStarted = true;
 			target = GameManager.Instance.LevelManager.Player.transform;

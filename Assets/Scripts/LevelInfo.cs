@@ -21,6 +21,8 @@ public class LevelInfo : MonoBehaviour
 	public LevelManager.gameModes testGameMode;
 
 	public LevelManager.game3Ctypes testGame3CTypes;
+	
+	public SurvivalMode survivalModeManager;
 
 	private void Start()
 	{
@@ -38,6 +40,11 @@ public class LevelInfo : MonoBehaviour
 		for (int i = 0; i < countTexts.Count; i++)
 		{
 			countTexts[i].text = targetCount.ToString();
+		}
+
+		if (survivalMode)
+		{
+            survivalModeManager = new SurvivalMode();
 		}
 		DataManager.SetEnteredLevel("Level" + currentLevelIndex.ToString());
 	}
