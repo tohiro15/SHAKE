@@ -16,6 +16,8 @@ public class LevelInfo : MonoBehaviour
 
 	public bool needFlashlight;
 
+	public bool survivalMode;
+
 	public LevelManager.gameModes testGameMode;
 
 	public LevelManager.game3Ctypes testGame3CTypes;

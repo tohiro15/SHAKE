@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1791768366284264378}
   - component: {fileID: 1791768366284264436}
   m_Layer: 11
-  m_Name: SurvivalEnemy
+  m_Name: Enemy
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

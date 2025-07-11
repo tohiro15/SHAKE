@@ -81,10 +81,6 @@ public class SnakePart : MonoBehaviour
 		colTemp = new Collider[1];
 	}
 
-	private void Start()
-	{
-	}
-
 	private void OnDestroy()
 	{
 		Remove();

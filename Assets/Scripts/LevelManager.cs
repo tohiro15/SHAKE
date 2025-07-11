@@ -127,7 +127,7 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 
-	public PlayerControl Player => player;
+    public PlayerControl Player => player;
 
 	public Transform Pointer
 	{
