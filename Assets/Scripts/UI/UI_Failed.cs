@@ -23,6 +23,9 @@ public class UI_Failed : MonoBehaviour
 
     private void Start ()
     {
+        _returnButton?.onClick.RemoveAllListeners();
+        _returnButton?.onClick.AddListener(ReloadLevel);
+
         if (!GameManager.Instance.LevelManager.levelInfo.survivalMode)
         {
             _attemptPanel.SetActive(false);
@@ -30,22 +33,20 @@ public class UI_Failed : MonoBehaviour
             return;
         }
 
-        LevelManager.AttemptWait = true;
-
         _adsButton?.onClick.RemoveAllListeners();
         _adsButton?.onClick.AddListener(ShowFullscreen);
 
         _attemptPanel.SetActive(true);
         _failedPanel.SetActive(false);
 
-        _returnButton?.onClick.RemoveAllListeners();
-        _returnButton?.onClick.AddListener(ReloadLevel);
-
         _skipButton?.gameObject.SetActive(false);
 
         StartCoroutine(ShowSkipButton());
     }
-
+    private void OnEnable()
+    {
+        LevelManager.AttemptWait = true;
+    }
     public void CloseADS()
     {
         _attemptPanel.SetActive(false);

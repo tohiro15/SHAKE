@@ -216,14 +216,14 @@ public class LevelManager : MonoBehaviour
 		{
 			return;
 		}
-		if (gameState == gameStates.defeat)
+		if (gameState == gameStates.defeat && GP_Device.IsDesktop())
 		{
-			//if (UnityEngine.Input.GetKeyDown(KeyCode.R))
-			//{
-			//	TryLoadLevel(levelIndex);
-			//}
+			if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+			{
+				TryLoadLevel(levelIndex);
+			}
 		}
-		else if (gameState == gameStates.success)
+		else if (gameState == gameStates.success && GP_Device.IsDesktop())
 		{
 			if (UnityEngine.Input.GetKeyDown(KeyCode.R))
 			{
