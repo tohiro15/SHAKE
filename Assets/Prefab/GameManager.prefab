@@ -13187,7 +13187,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click to retry
+  m_Text: "\u70B9\u51FB\u91CD\u8BD5"
 --- !u!114 &1791768366284264015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13220,7 +13220,7 @@ MonoBehaviour:
   EnglishObjects: []
   text: {fileID: 1791768366284264010}
   textMesh: {fileID: 0}
-  ChineseText: "\u6309R\u952E\u91CD\u8BD5"
+  ChineseText: "\u70B9\u51FB\u91CD\u8BD5"
   EnglishText: Click to retry
 --- !u!114 &3718707268849744281
 MonoBehaviour:
@@ -13393,8 +13393,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1791768368129757603}
   - {fileID: 1791768368129757606}
+  - {fileID: 1791768368129757603}
   - {fileID: 1791768368129757608}
   - {fileID: 1791768368129757634}
   m_Father: {fileID: 1791768364438769931}
@@ -13715,6 +13715,7 @@ GameObject:
   - component: {fileID: 1791768368096203067}
   - component: {fileID: 1791768366284264000}
   - component: {fileID: 1791768366284263997}
+  - component: {fileID: 3524456506421959024}
   m_Layer: 5
   m_Name: String
   m_TagString: 
@@ -13782,9 +13783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Too many bros died.
-
-'
+  m_Text: "\u6B7B\u4E86\u592A\u591A\u5144\u5F1F\u3002"
 --- !u!114 &1791768366284263997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13800,6 +13799,25 @@ MonoBehaviour:
   m_EffectColor: {r: 0.0820718, g: 0.1792373, b: 0.3382353, a: 1}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &3524456506421959024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791768364388438128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13d1d4fd760f52f1fd5724be455908b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncType: 1
+  ChineseObjects: []
+  EnglishObjects: []
+  text: {fileID: 1791768366284264000}
+  textMesh: {fileID: 0}
+  ChineseText: "\u6B7B\u4E86\u592A\u591A\u5144\u5F1F\u3002"
+  EnglishText: Too many bros died.
 --- !u!1 &1791768364388438129
 GameObject:
   m_ObjectHideFlags: 0
