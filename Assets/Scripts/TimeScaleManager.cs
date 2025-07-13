@@ -29,7 +29,11 @@ public class TimeScaleManager : MonoBehaviour
 		{
 			Time.timeScale = 0f;
 		}
-		UpdateTimeScale();
+        if (LevelManager.AttemptWait)
+        {
+            Time.timeScale = 0f;
+        }
+        UpdateTimeScale();
 	}
 
 	public void Dead()

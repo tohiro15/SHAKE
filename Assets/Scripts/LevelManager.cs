@@ -62,6 +62,8 @@ public class LevelManager : MonoBehaviour
 
 	private bool shoping;
 
+    private bool attemptWaiting;
+
     [SerializeField]
 	private PlayerControl playerPfb;
 
@@ -148,6 +150,25 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public static bool AttemptWait
+    {
+        get
+        {
+            if ((bool)instance)
+            {
+                return instance.attemptWaiting;
+            }
+            return false;
+        }
+        set
+        {
+            if ((bool)instance && instance.attemptWaiting != value)
+            {
+                instance.attemptWaiting = value;
+            }
+        }
+    }
+
     public PlayerControl Player => player;
 
 	public Transform Pointer
@@ -187,7 +208,7 @@ public class LevelManager : MonoBehaviour
     private void Update()
 	{
 		Cursor.lockState = CursorLockMode.None;
-		if (paused || shoping)
+		if (paused || shoping || attemptWaiting)
 		{
 			Cursor.visible = true;
 		}
@@ -216,7 +237,7 @@ public class LevelManager : MonoBehaviour
 				}
 			}
 		}
-		else if (!paused && !shoping)
+		else if (!paused && !shoping && !attemptWaiting)
 		{
 			Cursor.visible = false;
 			if (game3CType == game3Ctypes.fps)
