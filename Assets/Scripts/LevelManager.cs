@@ -218,10 +218,10 @@ public class LevelManager : MonoBehaviour
 		}
 		if (gameState == gameStates.defeat)
 		{
-			if (UnityEngine.Input.GetKeyDown(KeyCode.R))
-			{
-				TryLoadLevel(levelIndex);
-			}
+			//if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+			//{
+			//	TryLoadLevel(levelIndex);
+			//}
 		}
 		else if (gameState == gameStates.success)
 		{

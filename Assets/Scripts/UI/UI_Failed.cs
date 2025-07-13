@@ -3,12 +3,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Attempt : MonoBehaviour
+public class UI_Failed : MonoBehaviour
 {
-    [SerializeField] private float _waitTime = 8f;
+    [Header("Failed")]
     [Space]
-    [SerializeField] private GameObject _attemptPanel;
+
     [SerializeField] private GameObject _failedPanel;
+    [SerializeField] private Button _returnButton;
+
+    [Header("Attempt")]
+    [Space]
+
+    [SerializeField] private float _waitTime = 8f;
+    [SerializeField] private GameObject _attemptPanel;
     [Space]
     [SerializeField] private Image _ringTimer;
     [SerializeField] public Button _adsButton;
@@ -23,8 +30,6 @@ public class UI_Attempt : MonoBehaviour
             return;
         }
 
-
-
         LevelManager.AttemptWait = true;
 
         _adsButton?.onClick.RemoveAllListeners();
@@ -32,6 +37,9 @@ public class UI_Attempt : MonoBehaviour
 
         _attemptPanel.SetActive(true);
         _failedPanel.SetActive(false);
+
+        _returnButton?.onClick.RemoveAllListeners();
+        _returnButton?.onClick.AddListener(ReloadLevel);
 
         _skipButton?.gameObject.SetActive(false);
 
@@ -61,19 +69,19 @@ public class UI_Attempt : MonoBehaviour
 
         while (elapsed < _waitTime)
         {
-            // добавляем реальное (unscaled) время
             elapsed += Time.unscaledDeltaTime;
             _ringTimer.fillAmount = Mathf.Clamp01(elapsed / _waitTime);
 
-            // ждём следующий кадр (корутина не блокируется даже при timeScale = 0)
             yield return null;
         }
 
-        // показаем кнопку, когда время вышло
         _skipButton?.gameObject.SetActive(true);
         _skipButton?.onClick.RemoveAllListeners();
         _skipButton?.onClick.AddListener(CloseADS);
     }
 
-
+    private void ReloadLevel()
+    {
+        GameManager.Instance.LevelManager.TryLoadLevel(GameManager.Instance.LevelManager.levelInfo.currentLevelIndex);
+    }
 }
